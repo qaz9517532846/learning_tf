@@ -4,8 +4,6 @@
 
 std::string turtle_name;
 
-
-
 void poseCallback(const turtlesim::PoseConstPtr& msg){
   static tf::TransformBroadcaster br;
   tf::Transform transform;
@@ -17,8 +15,13 @@ void poseCallback(const turtlesim::PoseConstPtr& msg){
 }
 
 int main(int argc, char** argv){
-  ros::init(argc, argv, "my_tf_broadcaster");
-  if (argc != 2){ROS_ERROR("need turtle name as argument"); return -1;};
+  ros::init(argc, argv, "turtle_tf_broadcaster");
+  if (argc != 2)
+  {
+    ROS_ERROR("need turtle name as argument"); 
+    return -1;
+  };
+
   turtle_name = argv[1];
 
   ros::NodeHandle node;

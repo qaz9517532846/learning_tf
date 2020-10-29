@@ -8,8 +8,12 @@ find_package(catkin REQUIRED COMPONENTS
   turtlesim
 )
 
+catkin_package(
+
+)
+
 include_directories(
-# include
+  include
   ${catkin_INCLUDE_DIRS}
 )
 
@@ -18,3 +22,6 @@ target_link_libraries(turtle_tf_broadcaster ${catkin_LIBRARIES})
 
 add_executable(frame_tf_broadcaster src/frame_tf_broadcaster.cpp)
 target_link_libraries(frame_tf_broadcaster ${catkin_LIBRARIES})
+
+add_executable(turtle_tf_listener src/turtle_tf_listener.cpp)
+target_link_libraries(turtle_tf_listener ${catkin_LIBRARIES})
